@@ -11,7 +11,7 @@ public class PropertiesReader {
 	
 	public PropertiesReader(){
 		try {
-			InputStream input = new FileInputStream("../../../../Utils/param.properties");
+			InputStream input = new FileInputStream("Utils/param.properties");
 			prop.load(input);
 		} catch (Exception e) {
 			e.printStackTrace();
