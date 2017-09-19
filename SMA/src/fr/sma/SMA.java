@@ -15,20 +15,22 @@ public class SMA extends Observable {
 	protected List<Agent> agents = new ArrayList<Agent>();
 
 	protected int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
-	protected int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeX"));
+	protected int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
 
 	protected Environment e;
 	
 	public SMA() {
 		Random rand = new Random();
-		Environment e = new Environment(this.gridSizeX, this.gridSizeY);
+		this.e = new Environment(this.gridSizeX, this.gridSizeY);
 		for (int i = 0; i < Integer.parseInt(Properties.getProperty("nbParticules")); i++) {
 			int posX, posY;
 			do {
 				posX = rand.nextInt(this.gridSizeX);
 				posY = rand.nextInt(this.gridSizeY);
 			} while (e.getAgent(posX, posY) != null);
-			Particle p = new Particle(e, posX, posY, rand.nextInt(3) - 1, rand.nextInt(3) - 1);
+			int pasX = rand.nextInt(3) - 1;
+			int pasY = rand.nextInt(3) - 1;
+			Particle p = new Particle(e, posX, posY, pasX, pasY);
 			this.agents.add(p);
 			e.addAgent(p, posX, posY);
 		}
@@ -41,9 +43,9 @@ public class SMA extends Observable {
 			for(Agent a : this.agents){
 				a.decide();
 			}
-			nbTicks--;
+			if(nbTicks > 1) nbTicks--;
 			this.setChanged();
 			this.notifyObservers();
-		} while(nbTicks <= 0 || nbTicks != 1); 
+		} while(nbTicks == 0 || nbTicks != 1); 
 	}
 }

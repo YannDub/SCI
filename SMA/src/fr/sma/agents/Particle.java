@@ -6,10 +6,11 @@ import fr.sma.Environment;
 
 public class Particle extends Agent {
 
-	protected Color color = Color.gray;
+	protected Color color;
 	
 	public Particle(Environment environment, int posX, int posY, int pasX, int pasY) {
 		super(environment, posX, posY, pasX, pasY);
+		this.color = Color.gray;
 	}
 	
 	public void decide() {		

@@ -9,27 +9,33 @@ import java.util.Observer;
 import javax.swing.JFrame;
 
 import fr.sma.agents.Particle;
+import fr.sma.utils.Properties;
 
 public class Vue extends Canvas implements Observer {
 
 	private static final long serialVersionUID = 1L;
 	private JFrame window;
 	private int cellWidth, cellHeight;
+	private int canvasSizeX = Integer.parseInt(Properties.getProperty("canvasSizeX"));
+	private int canvasSizeY = Integer.parseInt(Properties.getProperty("canvasSizeY"));
+	private int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
+	private int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
 	
 	public Vue() {
-		this.setSize(1080, 720);
+		this.setSize(canvasSizeX, canvasSizeY);
 		
 		this.window = new JFrame("SMA");
 		window.add(this);
 		window.pack();
-		window.setSize(1080, 720);
+		window.setSize(canvasSizeX, canvasSizeY);
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		this.setIgnoreRepaint(true);
 		
-		this.cellHeight = 720 / 100;
-		this.cellWidth = 1080 / 100;
+		this.cellHeight = canvasSizeY / gridSizeX;
+		this.cellWidth = canvasSizeX / gridSizeY;
 	}
 	
 	@Override
@@ -38,9 +44,10 @@ public class Vue extends Canvas implements Observer {
 		SMA sma = (SMA) o;
 		
 		g.setColor(Color.white);
-		g.clearRect(0, 0, 1080, 720);
-		for(int i = 0; i < 100; i++) {
-			for(int j = 0; j < 100; j++) {
+		g.clearRect(0, 0, canvasSizeX, canvasSizeY);
+		
+		for(int i = 0; i < gridSizeX; i++) {
+			for(int j = 0; j < gridSizeY; j++) {
 				Particle p = (Particle) sma.e.getAgent(i, j);
 				if(p != null) {
 					g.setColor(p.getColor());
@@ -49,6 +56,7 @@ public class Vue extends Canvas implements Observer {
 			}
 		}
 		g.dispose();
+		System.out.println("test");
 	}
 
 }
