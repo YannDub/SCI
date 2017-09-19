@@ -3,17 +3,21 @@ package fr.sma;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Observable;
 import java.util.Random;
 
 import fr.sma.agents.Agent;
 import fr.sma.agents.Particle;
 import fr.sma.utils.Properties;
 
-public class SMA {
+public class SMA extends Observable {
 	
 	protected List<Agent> agents = new ArrayList<Agent>();
+
 	protected int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
 	protected int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeX"));
+
+	protected Environment e;
 	
 	public SMA() {
 		Random rand = new Random();
@@ -38,6 +42,8 @@ public class SMA {
 				a.decide();
 			}
 			nbTicks--;
+			this.setChanged();
+			this.notifyObservers();
 		} while(nbTicks <= 0 || nbTicks != 1); 
 	}
 }
