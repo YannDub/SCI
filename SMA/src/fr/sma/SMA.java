@@ -3,20 +3,22 @@ package fr.sma;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Observable;
 import java.util.Random;
 
 import fr.sma.agents.Agent;
 import fr.sma.agents.Particle;
 
-public class SMA {
+public class SMA extends Observable {
 	
 	protected List<Agent> agents = new ArrayList<Agent>();
 	protected int gridSizeX = 100;
 	protected int gridSizeY = 100;
+	protected Environment e;
 	
 	public SMA(int nbAgent) {
 		Random rand = new Random();
-		Environment e = new Environment(this.gridSizeX, this.gridSizeY);
+		this.e = new Environment(this.gridSizeX, this.gridSizeY);
 		for (int i = 0; i < nbAgent; i++) {
 			int posX, posY;
 			do {
@@ -35,6 +37,8 @@ public class SMA {
 			for(Agent a : this.agents){
 				a.decide();
 			}
+			this.setChanged();
+			this.notifyObservers();
 		}
 	}	
 }
