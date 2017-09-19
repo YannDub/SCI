@@ -7,17 +7,18 @@ import java.util.Random;
 
 import fr.sma.agents.Agent;
 import fr.sma.agents.Particle;
+import fr.sma.utils.Properties;
 
 public class SMA {
 	
 	protected List<Agent> agents = new ArrayList<Agent>();
-	protected int gridSizeX = 100;
-	protected int gridSizeY = 100;
+	protected int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
+	protected int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeX"));
 	
-	public SMA(int nbAgent) {
+	public SMA() {
 		Random rand = new Random();
 		Environment e = new Environment(this.gridSizeX, this.gridSizeY);
-		for (int i = 0; i < nbAgent; i++) {
+		for (int i = 0; i < Integer.parseInt(Properties.getProperty("nbParticules")); i++) {
 			int posX, posY;
 			do {
 				posX = rand.nextInt(this.gridSizeX);
@@ -30,11 +31,13 @@ public class SMA {
 	}
 	
 	public void run() {
-		while(true) {
+		int nbTicks = Integer.parseInt(Properties.getProperty("nbTicks")); 
+		do {
 			Collections.shuffle(agents);
 			for(Agent a : this.agents){
 				a.decide();
 			}
-		}
-	}	
+			nbTicks--;
+		} while(nbTicks <= 0 || nbTicks != 1); 
+	}
 }
