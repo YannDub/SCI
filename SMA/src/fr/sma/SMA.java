@@ -5,20 +5,22 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Observable;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import fr.sma.agents.Agent;
 import fr.sma.agents.Particle;
 import fr.sma.utils.Properties;
 
 public class SMA extends Observable {
-	
+
 	protected List<Agent> agents = new ArrayList<Agent>();
 
 	protected int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
 	protected int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
 
 	protected Environment e;
-	
+
 	public SMA() {
 		Random rand = new Random();
 		this.e = new Environment(this.gridSizeX, this.gridSizeY);
@@ -35,17 +37,27 @@ public class SMA extends Observable {
 			e.addAgent(p, posX, posY);
 		}
 	}
-	
+
 	public void run() {
-		int nbTicks = Integer.parseInt(Properties.getProperty("nbTicks")); 
-		do {
-			Collections.shuffle(agents);
-			for(Agent a : this.agents){
-				a.decide();
+		int delay = Integer.parseInt(Properties.getProperty("delay"));
+		final int nbTicks = Integer.parseInt(Properties.getProperty("nbTicks"));
+		
+		TimerTask task = new TimerTask() {
+			private int ticks = nbTicks;
+			@Override
+			public void run() {
+				if (ticks == 0 || ticks != 1) {
+					Collections.shuffle(agents);
+					for (Agent a : agents) {
+						a.decide();
+					}
+					if (ticks > 1)
+						ticks--;
+					setChanged();
+					notifyObservers();
+				}
 			}
-			if(nbTicks > 1) nbTicks--;
-			this.setChanged();
-			this.notifyObservers();
-		} while(nbTicks == 0 || nbTicks != 1); 
+		};
+		new Timer().scheduleAtFixedRate(task, delay, delay);
 	}
 }

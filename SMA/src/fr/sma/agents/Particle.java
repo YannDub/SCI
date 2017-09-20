@@ -15,7 +15,7 @@ public class Particle extends Agent {
 	
 	public void decide() {		
 		try {
-			Particle p = (Particle) this.environment.getAgent(this.posX + this.pasX, this.posY + this.posY);
+			Particle p = (Particle) this.environment.getAgent(this.posX + this.pasX, this.posY + this.pasY);
 			if(p != null) this.bounceParticle(p);
 			else this.step();
 		} catch(ArrayIndexOutOfBoundsException e) {
