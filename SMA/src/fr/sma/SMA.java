@@ -18,6 +18,7 @@ public class SMA extends Observable {
 
 	protected int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
 	protected int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
+	protected int tick = 0;
 
 	protected Environment e;
 
@@ -37,6 +38,10 @@ public class SMA extends Observable {
 			e.addAgent(p, posX, posY);
 		}
 	}
+	
+	public int getTick() {
+		return this.tick;
+	}
 
 	public void run() {
 		int delay = Integer.parseInt(Properties.getProperty("delay"));
@@ -51,6 +56,7 @@ public class SMA extends Observable {
 					for (Agent a : agents) {
 						a.decide();
 					}
+					tick = ticks;
 					if (ticks > 1)
 						ticks--;
 					setChanged();

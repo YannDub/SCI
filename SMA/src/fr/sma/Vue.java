@@ -14,6 +14,7 @@ public class Vue implements Observer {
 	private EnvironmentPanel panel;
 	private int canvasSizeX = Integer.parseInt(Properties.getProperty("canvasSizeX"));
 	private int canvasSizeY = Integer.parseInt(Properties.getProperty("canvasSizeY"));
+	private int refresh = Integer.parseInt(Properties.getProperty("refresh"));
 	
 	public Vue() {
 		panel = new EnvironmentPanel(canvasSizeX, canvasSizeY);
@@ -29,8 +30,9 @@ public class Vue implements Observer {
 	
 	@Override
 	public void update(Observable o, Object arg) {
-		panel.setEnvironment(((SMA) o).e);
-		panel.repaint();
+		SMA sma = (SMA) o;
+		panel.setEnvironment(sma.e);
+		if(sma.getTick() % refresh == 0) panel.repaint();
 	}
 
 }
