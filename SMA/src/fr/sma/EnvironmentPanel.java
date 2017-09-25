@@ -1,5 +1,6 @@
 package fr.sma;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
@@ -12,7 +13,9 @@ public class EnvironmentPanel extends JPanel {
 	private Environment e;
 	private int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
 	private int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
+	private boolean grid = Boolean.parseBoolean(Properties.getProperty("grid"));
 	private int cellWidth, cellHeight;
+	
 	
 	public EnvironmentPanel(int width, int height) {
 		cellWidth = width / gridSizeX;
@@ -23,6 +26,11 @@ public class EnvironmentPanel extends JPanel {
 		super.paintComponent(g);
 		for(int i = 0; i < gridSizeX; i++) {
 			for(int j = 0; j < gridSizeY; j++) {
+				if(grid) {
+					g.setColor(Color.black);
+					g.drawRect(i * cellWidth, j * cellHeight, cellWidth, cellHeight);
+				}
+				
 				Particle p = (Particle) e.getAgent(i, j);
 				if(p != null) {
 					g.setColor(p.getColor());
