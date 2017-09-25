@@ -52,11 +52,16 @@ public class SMA extends Observable {
 			private int ticks = nbTicks;
 			@Override
 			public void run() {
+				Random rand = new Random();
 				if (ticks == 0 || ticks != 1) {
 					if(scheduling == "equitable")
 						Collections.shuffle(agents);
 					for (Agent a : agents) {
-						a.decide();
+						if(scheduling == "aleat") {
+							Agent ag = agents.get(rand.nextInt(agents.size()));
+							ag.decide();
+						} else 
+							a.decide();
 					}
 					tick = ticks;
 					if (ticks > 1)
