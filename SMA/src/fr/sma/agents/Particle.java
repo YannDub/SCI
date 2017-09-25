@@ -3,6 +3,8 @@ package fr.sma.agents;
 import java.awt.Color;
 
 import fr.sma.Environment;
+import fr.sma.Main;
+import fr.sma.SMA;
 import fr.sma.utils.Properties;
 
 public class Particle extends Agent {
@@ -42,6 +44,8 @@ public class Particle extends Agent {
 		agent.pasY = currentPasY;
 		this.turnRed();
 		agent.turnRed();
+		SMA.nbCollisions++;
+		System.out.println("Agent;"+this.posX+","+this.posY);
 	}
 	
 	private void bounceBorder() {
