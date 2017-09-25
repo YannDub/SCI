@@ -56,7 +56,6 @@ public class Particle extends Agent {
 		int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
 		this.posX = Math.floorMod((this.posX +  this.pasX),  gridSizeX);
 		this.posY = Math.floorMod((this.posY +  this.pasY), gridSizeY);
-		float mod = Math.floorMod(-1,100);
 		environment.addAgent(this, this.posX, this.posY);
 	}
 	
