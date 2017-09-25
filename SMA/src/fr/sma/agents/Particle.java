@@ -52,14 +52,11 @@ public class Particle extends Agent {
 	
 	private void borderTorus() {
 		environment.removeAgent(this.posX, this.posY);
-		System.out.println(this.posX+", "+this.posY);
 		int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
 		int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
 		this.posX = Math.floorMod((this.posX +  this.pasX),  gridSizeX);
 		this.posY = Math.floorMod((this.posY +  this.pasY), gridSizeY);
 		float mod = Math.floorMod(-1,100);
-		System.out.println(this.posX+", "+this.posY);
-		System.out.println("modulo : "+mod);
 		environment.addAgent(this, this.posX, this.posY);
 	}
 	
