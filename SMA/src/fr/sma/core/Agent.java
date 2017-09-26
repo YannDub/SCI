@@ -1,9 +1,12 @@
 package fr.sma.core;
 
+import java.awt.Color;
+
 public abstract class Agent {
 	protected int posX, posY;
 	protected int pasX, pasY;
 	protected Environment environment;
+	protected Color color;
 	
 	public Agent(Environment environment, int posX, int posY, int pasX, int pasY) {
 		this.environment = environment;
@@ -18,4 +21,8 @@ public abstract class Agent {
 	}
 	
 	public abstract void decide();
+	
+	public Color getColor() {
+		return this.color;
+	}
 }

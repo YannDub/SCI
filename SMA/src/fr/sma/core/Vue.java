@@ -1,4 +1,4 @@
-package fr.sma.particules;
+package fr.sma.core;
 
 import java.awt.Dimension;
 import java.util.Observable;
@@ -6,7 +6,6 @@ import java.util.Observer;
 
 import javax.swing.JFrame;
 
-import fr.sma.core.EnvironmentPanel;
 import fr.sma.core.utils.Properties;
 
 public class Vue implements Observer {

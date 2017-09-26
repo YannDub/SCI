@@ -1,6 +1,5 @@
-package fr.sma.particules;
+package fr.sma.core;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,37 +8,20 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import fr.sma.core.Agent;
-import fr.sma.core.Environment;
 import fr.sma.core.utils.Properties;
 
 public class SMA extends Observable {
 
 	protected List<Agent> agents = new ArrayList<Agent>();
 
-	protected int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
-	protected int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
 	protected String scheduling = Properties.getProperty("scheduling");
 	protected int tick = 0;
 	public static int nbCollisions = 0;
 
 	protected Environment e;
 
-	public SMA() {
-		Random rand = new Random();
-		this.e = new Environment(this.gridSizeX, this.gridSizeY);
-		for (int i = 0; i < Integer.parseInt(Properties.getProperty("nbParticules")); i++) {
-			int posX, posY;
-			do {
-				posX = rand.nextInt(this.gridSizeX);
-				posY = rand.nextInt(this.gridSizeY);
-			} while (e.getAgent(posX, posY) != null);
-			int pasX = rand.nextInt(3) - 1;
-			int pasY = rand.nextInt(3) - 1;
-			Agent p = new Particle(e, posX, posY, pasX, pasY);
-			this.agents.add(p);
-			e.addAgent(p, posX, posY);
-		}
+	public SMA(List<Agent> agents) {
+		this.agents = agents;
 	}
 	
 	public int getTick() {

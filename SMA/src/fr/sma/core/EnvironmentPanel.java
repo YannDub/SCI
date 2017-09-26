@@ -6,7 +6,6 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import fr.sma.core.utils.Properties;
-import fr.sma.particules.Particle;
 
 public class EnvironmentPanel extends JPanel {
 	
@@ -31,7 +30,7 @@ public class EnvironmentPanel extends JPanel {
 					g.drawRect(i * cellWidth, j * cellHeight, cellWidth, cellHeight);
 				}
 				
-				Particle p = (Particle) e.getAgent(i, j);
+				Agent p = e.getAgent(i, j);
 				if(p != null) {
 					g.setColor(p.getColor());
 					g.fillRect(i * cellWidth, j * cellHeight, cellWidth, cellHeight);

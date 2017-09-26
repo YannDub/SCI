@@ -1,5 +1,6 @@
 package fr.sma.wator;
 
+import java.awt.Color;
 import java.util.Random;
 
 import fr.sma.core.Agent;
@@ -13,6 +14,7 @@ public class Fishs extends Agent {
 	public Fishs(Environment environment, int posX, int posY) {
 		super(environment, posX, posY, 0, 0);
 		this.breedTime = Integer.parseInt(Properties.getProperty("FishBreedTime"));
+		this.color = Color.blue;
 	}
 
 	@Override
@@ -29,7 +31,11 @@ public class Fishs extends Agent {
 			if(this.breedTime <= 0) {
 				this.bornToBeAlive();
 			}
-			move();
+			try {				
+				move();
+			} catch(ArrayIndexOutOfBoundsException e) {
+				
+			}
 		}
 	}
 	

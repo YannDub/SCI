@@ -1,5 +1,6 @@
 package fr.sma.wator;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +15,11 @@ public class Sharks extends Agent {
 	private int breedTime;
 	private int starveTime;
 	
-	public Sharks(Environment environment, int posX, int posY, int pasX, int pasY) {
-		super(environment, posX, posY, pasX, pasY);
+	public Sharks(Environment environment, int posX, int posY) {
+		super(environment, posX, posY, 0, 0);
 		this.breedTime = Integer.parseInt(Properties.getProperty("SharkBreedTime"));
 		this.starveTime = Integer.parseInt(Properties.getProperty("SharkStarveTime"));
+		this.color = Color.red;
 	}
 
 	@Override
@@ -55,7 +57,11 @@ public class Sharks extends Agent {
 				if(this.breedTime <= 0) {
 					this.bornToBeAlive();
 				}
-				move();
+				try {					
+					move();
+				} catch(ArrayIndexOutOfBoundsException e) {
+					
+				}
 			}
 			this.starveTime--;
 		}

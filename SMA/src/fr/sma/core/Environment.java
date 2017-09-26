@@ -9,6 +9,8 @@ public class Environment {
 	}
 	
 	public Agent getAgent(int x, int y) {
+		if(x >= grid.length || x < 0 || y >= grid[0].length || y < 0)
+			return null;
 		return this.grid[x][y];
 	}
 	

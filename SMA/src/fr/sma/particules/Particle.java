@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import fr.sma.core.Agent;
 import fr.sma.core.Environment;
+import fr.sma.core.SMA;
 import fr.sma.core.utils.Properties;
 
 public class Particle extends Agent {
