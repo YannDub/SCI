@@ -7,6 +7,7 @@ import java.util.Random;
 
 import fr.sma.core.Agent;
 import fr.sma.core.Environment;
+import fr.sma.core.utils.Properties;
 
 public class Sharks extends Agent {
 	
@@ -15,6 +16,8 @@ public class Sharks extends Agent {
 	
 	public Sharks(Environment environment, int posX, int posY, int pasX, int pasY) {
 		super(environment, posX, posY, pasX, pasY);
+		this.breedTime = Integer.parseInt(Properties.getProperty("SharkBreedTime"));
+		this.starveTime = Integer.parseInt(Properties.getProperty("SharkStarveTime"));
 	}
 
 	@Override
@@ -45,13 +48,16 @@ public class Sharks extends Agent {
 			if(pasX == 0) {
 				pasY = rand.nextBoolean() ? -1 : 1;
 			}
-			if(this.environment.getAgent(this.posX + pasX, this.posY + pasY) == null) {
+			if(this.starveTime == 0) {
+				this.die();
+			} else if(this.environment.getAgent(this.posX + pasX, this.posY + pasY) == null) {
 				this.breedTime--;
-				if(this.breedTime == 0) {
+				if(this.breedTime <= 0) {
 					this.bornToBeAlive();
 				}
 				move();
 			}
+			this.starveTime--;
 		}
 	}
 	
@@ -67,10 +73,16 @@ public class Sharks extends Agent {
 		this.pasY = (int) (p.getY() - this.posY);
 		this.environment.removeAgent((int)p.getX(), (int)p.getY());
 		this.move();
+		this.starveTime = Integer.parseInt(Properties.getProperty("SharkStarveTime"));
 	}
 	
 	private void bornToBeAlive() {
 		this.environment.addAgent(new Fishs(this.environment, this.posX, this.posY), this.posX, this.posY);
+		this.breedTime = Integer.parseInt(Properties.getProperty("SharkBreedTime"));
+	}
+	
+	private void die() {
+		this.environment.removeAgent(this.posX, this.posY);
 	}
 
 }

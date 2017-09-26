@@ -4,6 +4,7 @@ import java.util.Random;
 
 import fr.sma.core.Agent;
 import fr.sma.core.Environment;
+import fr.sma.core.utils.Properties;
 
 public class Fishs extends Agent {
 	
@@ -11,6 +12,7 @@ public class Fishs extends Agent {
 	
 	public Fishs(Environment environment, int posX, int posY) {
 		super(environment, posX, posY, 0, 0);
+		this.breedTime = Integer.parseInt(Properties.getProperty("FishBreedTime"));
 	}
 
 	@Override
@@ -24,7 +26,7 @@ public class Fishs extends Agent {
 		}
 		if(this.environment.getAgent(this.posX + pasX, this.posY + pasY) == null) {
 			this.breedTime--;
-			if(this.breedTime == 0) {
+			if(this.breedTime <= 0) {
 				this.bornToBeAlive();
 			}
 			move();
@@ -40,6 +42,7 @@ public class Fishs extends Agent {
 	
 	private void bornToBeAlive() {
 		this.environment.addAgent(new Fishs(this.environment, this.posX, this.posY), this.posX, this.posY);
+		this.breedTime = Integer.parseInt(Properties.getProperty("FishBreedTime"));
 	}
 
 }

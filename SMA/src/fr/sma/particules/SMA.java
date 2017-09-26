@@ -25,7 +25,7 @@ public class SMA extends Observable {
 
 	protected Environment e;
 
-	public SMA(Class<? extends Agent> agentClass) {
+	public SMA() {
 		Random rand = new Random();
 		this.e = new Environment(this.gridSizeX, this.gridSizeY);
 		for (int i = 0; i < Integer.parseInt(Properties.getProperty("nbParticules")); i++) {
@@ -36,15 +36,9 @@ public class SMA extends Observable {
 			} while (e.getAgent(posX, posY) != null);
 			int pasX = rand.nextInt(3) - 1;
 			int pasY = rand.nextInt(3) - 1;
-			Agent p;
-			try {
-				p = (Agent) agentClass.getDeclaredConstructors()[0].newInstance(e, posX, posY, pasX, pasY);
-				this.agents.add(p);
-				e.addAgent(p, posX, posY);
-			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
-					| InvocationTargetException | SecurityException e1) {
-				e1.printStackTrace();
-			}
+			Agent p = new Particle(e, posX, posY, pasX, pasY);
+			this.agents.add(p);
+			e.addAgent(p, posX, posY);
 		}
 	}
 	
