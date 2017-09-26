@@ -3,6 +3,9 @@ package fr.sma.agents;
 import java.awt.Color;
 
 import fr.sma.Environment;
+import fr.sma.Main;
+import fr.sma.SMA;
+import fr.sma.utils.Properties;
 
 public class Particle extends Agent {
 
@@ -19,7 +22,9 @@ public class Particle extends Agent {
 			if(p != null) this.bounceParticle(p);
 			else this.step();
 		} catch(ArrayIndexOutOfBoundsException e) {
-			this.bounceBorder();
+			if (Boolean.parseBoolean(Properties.getProperty("torus")))
+				this.borderTorus();
+			else this.bounceBorder();
 		}
 	}
 	
@@ -39,12 +44,23 @@ public class Particle extends Agent {
 		agent.pasY = currentPasY;
 		this.turnRed();
 		agent.turnRed();
+		SMA.nbCollisions++;
+		System.out.println("Agent;"+this.posX+","+this.posY);
 	}
 	
 	private void bounceBorder() {
 		this.pasX = -this.pasX;
 		this.pasY = -this.pasY;
 		this.turnRed();
+	}
+	
+	private void borderTorus() {
+		environment.removeAgent(this.posX, this.posY);
+		int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
+		int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
+		this.posX = Math.floorMod((this.posX +  this.pasX),  gridSizeX);
+		this.posY = Math.floorMod((this.posY +  this.pasY), gridSizeY);
+		environment.addAgent(this, this.posX, this.posY);
 	}
 	
 	private void turnRed() {

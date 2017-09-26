@@ -18,7 +18,9 @@ public class SMA extends Observable {
 
 	protected int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
 	protected int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
+	protected String scheduling = Properties.getProperty("scheduling");
 	protected int tick = 0;
+	public static int nbCollisions = 0;
 
 	protected Environment e;
 
@@ -51,16 +53,24 @@ public class SMA extends Observable {
 			private int ticks = nbTicks;
 			@Override
 			public void run() {
+				Random rand = new Random();
 				if (ticks == 0 || ticks != 1) {
-					Collections.shuffle(agents);
+					SMA.nbCollisions = 0;
+					if(scheduling == "equitable")
+						Collections.shuffle(agents);
 					for (Agent a : agents) {
-						a.decide();
+						if(scheduling == "aleat") {
+							Agent ag = agents.get(rand.nextInt(agents.size()));
+							ag.decide();
+						} else 
+							a.decide();
 					}
 					tick = ticks;
 					if (ticks > 1)
 						ticks--;
 					setChanged();
 					notifyObservers();
+					System.out.println("Tick;"+SMA.nbCollisions);
 				}
 			}
 		};
