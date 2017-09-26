@@ -1,8 +1,6 @@
-package fr.sma.agents;
+package fr.sma.core;
 
-import fr.sma.Environment;
-
-public class Agent {
+public abstract class Agent {
 	protected int posX, posY;
 	protected int pasX, pasY;
 	protected Environment environment;
@@ -19,7 +17,5 @@ public class Agent {
 		
 	}
 	
-	public void decide() {
-		
-	}
+	public abstract void decide();
 }

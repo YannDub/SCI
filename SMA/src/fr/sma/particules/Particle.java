@@ -1,11 +1,10 @@
-package fr.sma.agents;
+package fr.sma.particules;
 
 import java.awt.Color;
 
-import fr.sma.Environment;
-import fr.sma.Main;
-import fr.sma.SMA;
-import fr.sma.utils.Properties;
+import fr.sma.core.Agent;
+import fr.sma.core.Environment;
+import fr.sma.core.utils.Properties;
 
 public class Particle extends Agent {
 
@@ -45,12 +44,21 @@ public class Particle extends Agent {
 		this.turnRed();
 		agent.turnRed();
 		SMA.nbCollisions++;
-		System.out.println("Agent;"+this.posX+","+this.posY);
+		if(Boolean.parseBoolean(Properties.getProperty("trace")))
+			System.out.println("Agent;"+this.posX+","+this.posY);
 	}
 	
 	private void bounceBorder() {
-		this.pasX = -this.pasX;
-		this.pasY = -this.pasY;
+		int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
+		int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
+		if(this.posX + this.pasX >= gridSizeX || this.posX + this.pasX < 0)
+			this.pasX = -this.pasX;
+		else if (this.posY + this.pasY >= gridSizeY || this.posY + this.pasY < 0) 
+			this.pasY = -this.pasY;
+		else {
+			this.pasX = -this.pasX;
+			this.pasY = -this.pasY;
+		}
 		this.turnRed();
 	}
 	

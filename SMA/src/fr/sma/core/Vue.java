@@ -1,4 +1,4 @@
-package fr.sma;
+package fr.sma.core;
 
 import java.awt.Dimension;
 import java.util.Observable;
@@ -6,7 +6,8 @@ import java.util.Observer;
 
 import javax.swing.JFrame;
 
-import fr.sma.utils.Properties;
+import fr.sma.core.utils.Properties;
+import fr.sma.particules.SMA;
 
 public class Vue implements Observer {
 
@@ -31,7 +32,7 @@ public class Vue implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		SMA sma = (SMA) o;
-		panel.setEnvironment(sma.e);
+		panel.setEnvironment(sma.getEnvironment());
 		if(sma.getTick() % refresh == 0) panel.repaint();
 	}
 

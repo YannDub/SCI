@@ -1,4 +1,4 @@
-package fr.sma.utils;
+package fr.sma.core.utils;
 
 import java.io.FileInputStream;
 import java.io.InputStream;

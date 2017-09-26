@@ -1,12 +1,12 @@
-package fr.sma;
+package fr.sma.core;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import fr.sma.agents.Particle;
-import fr.sma.utils.Properties;
+import fr.sma.core.utils.Properties;
+import fr.sma.particules.Particle;
 
 public class EnvironmentPanel extends JPanel {
 	

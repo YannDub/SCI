@@ -1,6 +1,4 @@
-package fr.sma;
-
-import fr.sma.agents.Agent;
+package fr.sma.core;
 
 public class Environment {
 	

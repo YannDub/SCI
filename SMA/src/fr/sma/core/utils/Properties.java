@@ -1,4 +1,4 @@
-package fr.sma.utils;
+package fr.sma.core.utils;
 
 public final class Properties {
 	private static PropertiesReader pr = new PropertiesReader();

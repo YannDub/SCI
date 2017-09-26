@@ -1,5 +1,6 @@
-package fr.sma;
+package fr.sma.particules;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -8,9 +9,9 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import fr.sma.agents.Agent;
-import fr.sma.agents.Particle;
-import fr.sma.utils.Properties;
+import fr.sma.core.Agent;
+import fr.sma.core.Environment;
+import fr.sma.core.utils.Properties;
 
 public class SMA extends Observable {
 
@@ -24,7 +25,7 @@ public class SMA extends Observable {
 
 	protected Environment e;
 
-	public SMA() {
+	public SMA(Class<? extends Agent> agentClass) {
 		Random rand = new Random();
 		this.e = new Environment(this.gridSizeX, this.gridSizeY);
 		for (int i = 0; i < Integer.parseInt(Properties.getProperty("nbParticules")); i++) {
@@ -35,14 +36,24 @@ public class SMA extends Observable {
 			} while (e.getAgent(posX, posY) != null);
 			int pasX = rand.nextInt(3) - 1;
 			int pasY = rand.nextInt(3) - 1;
-			Particle p = new Particle(e, posX, posY, pasX, pasY);
-			this.agents.add(p);
-			e.addAgent(p, posX, posY);
+			Agent p;
+			try {
+				p = (Agent) agentClass.getDeclaredConstructors()[0].newInstance(e, posX, posY, pasX, pasY);
+				this.agents.add(p);
+				e.addAgent(p, posX, posY);
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException | SecurityException e1) {
+				e1.printStackTrace();
+			}
 		}
 	}
 	
 	public int getTick() {
 		return this.tick;
+	}
+	
+	public Environment getEnvironment() {
+		return this.e;
 	}
 
 	public void run() {
@@ -70,7 +81,8 @@ public class SMA extends Observable {
 						ticks--;
 					setChanged();
 					notifyObservers();
-					System.out.println("Tick;"+SMA.nbCollisions);
+					if(Boolean.parseBoolean(Properties.getProperty("trace")))
+						System.out.println("Tick;"+SMA.nbCollisions);
 				}
 			}
 		};
