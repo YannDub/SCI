@@ -20,8 +20,9 @@ public class SMA extends Observable {
 
 	protected Environment e;
 
-	public SMA(List<Agent> agents) {
+	public SMA(List<Agent> agents, Environment e) {
 		this.agents = agents;
+		this.e = e;
 	}
 	
 	public int getTick() {

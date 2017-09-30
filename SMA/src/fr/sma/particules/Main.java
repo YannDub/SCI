@@ -46,7 +46,7 @@ public class Main {
 			e.addAgent(p, posX, posY);
 		}
 		
-		SMA sma = new SMA(agents);
+		SMA sma = new SMA(agents, e);
 		Vue vue = new Vue();
 		sma.addObserver(vue);
 		sma.run();
