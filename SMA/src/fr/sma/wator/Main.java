@@ -9,32 +9,43 @@ import fr.sma.core.Environment;
 import fr.sma.core.SMA;
 import fr.sma.core.Vue;
 import fr.sma.core.utils.Properties;
-import fr.sma.particules.Particle;
 
 public class Main {
 	
 	private static int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
 	private static int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
+	private static int nbSharks = Integer.parseInt(Properties.getProperty("nbSharks"));
+	private static int nbFishes = Integer.parseInt(Properties.getProperty("nbFishes"));
 	
 	public static void main(String[] argv) {
 		Random rand = new Random();
 		Environment e = new Environment(gridSizeX, gridSizeY);
 		List<Agent> agents = new ArrayList<Agent>();
+		SMA sma = new SMA(agents, e);
+		e.setSMA(sma);
 		
-		for (int i = 0; i < Integer.parseInt(Properties.getProperty("nbParticules")); i++) {
+		for (int i = 0; i < nbSharks; i++) {
 			int posX, posY;
 			do {
 				posX = rand.nextInt(gridSizeX);
 				posY = rand.nextInt(gridSizeY);
 			} while (e.getAgent(posX, posY) != null);
-			int pasX = rand.nextInt(3) - 1;
-			int pasY = rand.nextInt(3) - 1;
-			Agent p = new Particle(e, posX, posY, pasX, pasY);
+			Sharks p = new Sharks(e, posX, posY);
 			agents.add(p);
 			e.addAgent(p, posX, posY);
 		}
 		
-		SMA sma = new SMA(agents, e);
+		for (int i = 0; i < nbFishes; i++) {
+			int posX, posY;
+			do {
+				posX = rand.nextInt(gridSizeX);
+				posY = rand.nextInt(gridSizeY);
+			} while (e.getAgent(posX, posY) != null);
+			Fishs p = new Fishs(e, posX, posY);
+			agents.add(p);
+			e.addAgent(p, posX, posY);
+		}
+		
 		Vue vue = new Vue();
 		sma.addObserver(vue);
 		sma.run();

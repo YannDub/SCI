@@ -21,47 +21,63 @@ public class Sharks extends Agent {
 		this.starveTime = Integer.parseInt(Properties.getProperty("SharkStarveTime"));
 		this.color = Color.red;
 	}
+	
+	public Sharks(Environment environment, int posX, int posY, Color color) {
+		this(environment, posX, posY);
+		this.color = color;
+	}
 
 	@Override
 	public void decide() {
-		Agent[][] neighbours = {
-				{environment.getAgent(posX - 1, posY - 1), environment.getAgent(posX, posY - 1), environment.getAgent(posX + 1, posY - 1)},
-				{environment.getAgent(posX - 1, 0), environment.getAgent(posX, posY), environment.getAgent(posX + 1, posY)},
-				{environment.getAgent(posX - 1, posY + 1), environment.getAgent(posX, posY + 1), environment.getAgent(posX + 1, posY + 1)}
-		};
 		Random rand = new Random();		
 		List<Point> fishs = new ArrayList<Point>();
+		List<Point> water = new ArrayList<Point>();
+		
+		if(this.color == Color.pink)
+			this.color = Color.red;
 		
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 3; j++) {
-				if(neighbours[i][j] != null && neighbours[i][j] instanceof Fishs) {
+				try {
+					Agent neighbour = this.environment.getAgent(this.posX + i - 1, this.posY + j - 1);
 					Point p = new Point(this.posX + i - 1, this.posY + j - 1);
-					fishs.add(p);
+					if(neighbour != null && neighbour instanceof Fishs) {
+						fishs.add(p);
+					} else if(neighbour == null) {
+						water.add(p);
+					}
+				} catch(ArrayIndexOutOfBoundsException e) {
+					
 				}
 			}
 		}
+		int currentX = this.posX;
+		int currentY = this.posY;
 		
 		if(!fishs.isEmpty()) {
 			Point p = fishs.get(rand.nextInt(fishs.size()));
 			this.eatFish(p);
-		} else {
-			pasX = rand.nextInt(3) - 1;
-			pasY = rand.nextInt(3) - 1;
-			if(pasX == 0) {
-				pasY = rand.nextBoolean() ? -1 : 1;
+			this.breedTime--;
+			if(this.breedTime <= 0) {
+				this.bornToBeAlive(currentX, currentY);
 			}
+		} else if(!water.isEmpty()){
+			Point p = water.get(rand.nextInt(water.size()));
+			this.pasX = (int) (p.getX() - this.posX);
+			this.pasY = (int) (p.getY() - this.posY);
 			if(this.starveTime == 0) {
 				this.die();
-			} else if(this.environment.getAgent(this.posX + pasX, this.posY + pasY) == null) {
+			} else {
+				move();
 				this.breedTime--;
 				if(this.breedTime <= 0) {
-					this.bornToBeAlive();
+					this.bornToBeAlive(currentX, currentY);
 				}
-				try {					
-					move();
-				} catch(ArrayIndexOutOfBoundsException e) {
-					
-				}
+			}
+			this.starveTime--;
+		} else {
+			if(this.starveTime == 0) {
+				this.die();
 			}
 			this.starveTime--;
 		}
@@ -77,13 +93,15 @@ public class Sharks extends Agent {
 	private void eatFish(Point p) {
 		this.pasX = (int) (p.getX() - this.posX);
 		this.pasY = (int) (p.getY() - this.posY);
-		this.environment.removeAgent((int)p.getX(), (int)p.getY());
+		this.environment.removeAgent(this.posX + this.pasX, this.posY + this.pasY);
 		this.move();
 		this.starveTime = Integer.parseInt(Properties.getProperty("SharkStarveTime"));
 	}
 	
-	private void bornToBeAlive() {
-		this.environment.addAgent(new Fishs(this.environment, this.posX, this.posY), this.posX, this.posY);
+	private void bornToBeAlive(int x, int y) {
+		Sharks shark = new Sharks(this.environment, x, y);
+		shark.color = Color.pink;
+		this.environment.addAgent(shark, x, y);
 		this.breedTime = Integer.parseInt(Properties.getProperty("SharkBreedTime"));
 	}
 	

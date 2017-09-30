@@ -13,6 +13,7 @@ import fr.sma.core.utils.Properties;
 public class SMA extends Observable {
 
 	protected List<Agent> agents = new ArrayList<Agent>();
+	protected List<Agent> removedAgent;
 
 	protected String scheduling = Properties.getProperty("scheduling");
 	protected int tick = 0;
@@ -22,6 +23,7 @@ public class SMA extends Observable {
 
 	public SMA(List<Agent> agents, Environment e) {
 		this.agents = agents;
+		this.removedAgent = new ArrayList<Agent>();
 		this.e = e;
 	}
 	
@@ -42,6 +44,7 @@ public class SMA extends Observable {
 			@Override
 			public void run() {
 				Random rand = new Random();
+				removedAgent = new ArrayList<Agent>();
 				if (ticks == 0 || ticks != 1) {
 					SMA.nbCollisions = 0;
 					if(scheduling == "equitable")
@@ -49,9 +52,9 @@ public class SMA extends Observable {
 					for (Agent a : agents) {
 						if(scheduling == "aleat") {
 							Agent ag = agents.get(rand.nextInt(agents.size()));
-							ag.decide();
+							if(!removedAgent.contains(ag)) ag.decide();
 						} else 
-							a.decide();
+							if(!removedAgent.contains(a)) a.decide();
 					}
 					tick = ticks;
 					if (ticks > 1)
@@ -60,6 +63,16 @@ public class SMA extends Observable {
 					notifyObservers();
 					if(Boolean.parseBoolean(Properties.getProperty("trace")))
 						System.out.println("Tick;"+SMA.nbCollisions);
+					
+					int width = Integer.parseInt(Properties.getProperty("gridSizeX"));
+					int height = Integer.parseInt(Properties.getProperty("gridSizeY"));
+					agents = new ArrayList<Agent>();
+					for(int i = 0; i < width; i++) {
+						for(int j = 0; j < height; j++) {
+							if(e.getAgent(i, j) != null)
+								agents.add(e.getAgent(i, j));
+						}
+					}
 				}
 			}
 		};
