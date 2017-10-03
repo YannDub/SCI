@@ -14,11 +14,13 @@ public class Sharks extends Agent {
 	
 	private int breedTime;
 	private int starveTime;
+	private boolean trace;
 	
 	public Sharks(Environment environment, int posX, int posY) {
 		super(environment, posX, posY, 0, 0);
 		this.breedTime = Integer.parseInt(Properties.getProperty("SharkBreedTime"));
 		this.starveTime = Integer.parseInt(Properties.getProperty("SharkStarveTime"));
+		this.trace = Boolean.parseBoolean(Properties.getProperty("trace"));
 		this.color = Color.red;
 	}
 	
@@ -96,6 +98,7 @@ public class Sharks extends Agent {
 		this.environment.removeAgent(this.posX + this.pasX, this.posY + this.pasY);
 		this.move();
 		this.starveTime = Integer.parseInt(Properties.getProperty("SharkStarveTime"));
+		if(this.trace) System.out.println("Fish; Eat");
 	}
 	
 	private void bornToBeAlive(int x, int y) {
@@ -103,10 +106,12 @@ public class Sharks extends Agent {
 		shark.color = Color.pink;
 		this.environment.addAgent(shark, x, y);
 		this.breedTime = Integer.parseInt(Properties.getProperty("SharkBreedTime"));
+		if(this.trace) System.out.println("Shark; Born");
 	}
 	
 	private void die() {
 		this.environment.removeAgent(this.posX, this.posY);
+		if(this.trace) System.out.println("Shark; Die");
 	}
 
 }

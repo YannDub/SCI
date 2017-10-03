@@ -68,6 +68,8 @@ public class Fishs extends Agent {
 		fish.color = Color.green;
 		this.environment.addAgent(fish, x, y);
 		this.breedTime = Integer.parseInt(Properties.getProperty("FishBreedTime"));
+		if(Boolean.parseBoolean(Properties.getProperty("trace")))
+			System.out.println("Fish; Born");
 	}
 
 }

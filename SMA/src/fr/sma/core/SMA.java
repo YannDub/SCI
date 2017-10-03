@@ -1,6 +1,7 @@
 package fr.sma.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Observable;
@@ -9,6 +10,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import fr.sma.core.utils.Properties;
+import fr.sma.wator.Fishs;
 
 public class SMA extends Observable {
 
@@ -18,6 +20,8 @@ public class SMA extends Observable {
 	protected String scheduling = Properties.getProperty("scheduling");
 	protected int tick = 0;
 	public static int nbCollisions = 0;
+	public int nbSharks;
+	public int nbFishs;
 
 	protected Environment e;
 
@@ -34,6 +38,16 @@ public class SMA extends Observable {
 	public Environment getEnvironment() {
 		return this.e;
 	}
+	
+	private void printAgents() {
+		for(Agent a : this.agents) {
+			if(a instanceof Fishs)
+				nbFishs++;
+			else
+				nbSharks++;
+		}
+		System.out.println("Tick;" + nbFishs + ";" + nbSharks + ";" + nbFishs/nbSharks);
+	}
 
 	public void run() {
 		int delay = Integer.parseInt(Properties.getProperty("delay"));
@@ -46,7 +60,10 @@ public class SMA extends Observable {
 				Random rand = new Random();
 				removedAgent = new ArrayList<Agent>();
 				if (ticks == 0 || ticks != 1) {
-					SMA.nbCollisions = 0;
+					if(!Boolean.parseBoolean(Properties.getProperty("trace")))
+						printAgents();
+					nbFishs = 0;
+					nbSharks = 0;
 					if(scheduling == "equitable")
 						Collections.shuffle(agents);
 					for (Agent a : agents) {
@@ -61,8 +78,6 @@ public class SMA extends Observable {
 						ticks--;
 					setChanged();
 					notifyObservers();
-					if(Boolean.parseBoolean(Properties.getProperty("trace")))
-						System.out.println("Tick;"+SMA.nbCollisions);
 					
 					int width = Integer.parseInt(Properties.getProperty("gridSizeX"));
 					int height = Integer.parseInt(Properties.getProperty("gridSizeY"));
