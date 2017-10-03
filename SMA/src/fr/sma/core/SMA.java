@@ -20,8 +20,8 @@ public class SMA extends Observable {
 	protected String scheduling = Properties.getProperty("scheduling");
 	protected int tick = 0;
 	public static int nbCollisions = 0;
-	public int nbSharks;
-	public int nbFishs;
+//	public int nbSharks;
+//	public int nbFishs;
 
 	protected Environment e;
 
@@ -40,13 +40,13 @@ public class SMA extends Observable {
 	}
 	
 	private void printAgents() {
-		for(Agent a : this.agents) {
-			if(a instanceof Fishs)
-				nbFishs++;
-			else
-				nbSharks++;
-		}
-		System.out.println("Tick;" + nbFishs + ";" + nbSharks + ";" + nbFishs/nbSharks);
+//		for(Agent a : this.agents) {
+//			if(a instanceof Fishs)
+//				nbFishs++;
+//			else
+//				nbSharks++;
+//		}
+//		System.out.println("Tick;" + nbFishs + ";" + nbSharks + ";" + nbFishs/nbSharks);
 	}
 
 	public void run() {
@@ -62,8 +62,8 @@ public class SMA extends Observable {
 				if (ticks == 0 || ticks != 1) {
 					if(!Boolean.parseBoolean(Properties.getProperty("trace")))
 						printAgents();
-					nbFishs = 0;
-					nbSharks = 0;
+//					nbFishs = 0;
+//					nbSharks = 0;
 					if(scheduling == "equitable")
 						Collections.shuffle(agents);
 					for (Agent a : agents) {

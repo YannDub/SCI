@@ -5,6 +5,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import fr.sma.core.utils.Properties;
 
@@ -33,6 +34,10 @@ public class Vue implements Observer {
 		SMA sma = (SMA) o;
 		panel.setEnvironment(sma.getEnvironment());
 		if(sma.getTick() % refresh == 0) panel.repaint();
+	}
+	
+	public JPanel getPanel() {
+		return this.panel;
 	}
 
 }
