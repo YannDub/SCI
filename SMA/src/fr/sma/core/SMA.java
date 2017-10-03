@@ -20,8 +20,8 @@ public class SMA extends Observable {
 	protected String scheduling = Properties.getProperty("scheduling");
 	protected int tick = 0;
 	public static int nbCollisions = 0;
-//	public int nbSharks;
-//	public int nbFishs;
+	public int nbSharks;
+	public int nbFishs;
 
 	protected Environment e;
 

@@ -16,7 +16,8 @@ public class Fishs extends Agent {
 	
 	public Fishs(Environment environment, int posX, int posY) {
 		super(environment, posX, posY, 0, 0);
-		this.breedTime = Integer.parseInt(Properties.getProperty("FishBreedTime"));
+		Random rand = new Random();
+		this.breedTime = 1 + rand.nextInt(Integer.parseInt(Properties.getProperty("FishBreedTime")));
 		this.color = Color.blue;
 	}
 

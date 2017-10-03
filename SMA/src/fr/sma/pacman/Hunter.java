@@ -14,7 +14,6 @@ public class Hunter extends Agent {
 
 	@Override
 	public void decide() {
-		// TODO Auto-generated method stub
 		
 	}
 
