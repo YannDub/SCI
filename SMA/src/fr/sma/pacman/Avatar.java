@@ -16,14 +16,11 @@ public class Avatar extends Agent implements KeyListener {
 	
 	public Avatar(Environment environment, int posX, int posY, int pasX, int pasY) {
 		super(environment, posX, posY, pasX, pasY);
-		this.color = Color.yellow;
+		this.color = Color.green;
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void keyTyped(KeyEvent e) {}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -31,10 +28,7 @@ public class Avatar extends Agent implements KeyListener {
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void keyReleased(KeyEvent e) {}
 
 	@Override
 	public void decide() {
@@ -58,14 +52,22 @@ public class Avatar extends Agent implements KeyListener {
 		List<Point> points = new ArrayList<Point>();
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 3; j++) {
-				Agent neighbour = this.environment.getAgent(this.posX + i - 1, this.posY + j - 1);
-				Point p = new Point(this.posX + i - 1, this.posY + j - 1);
-				if(neighbour == null)
-					points.add(p);
+				try {					
+					Agent neighbour = this.environment.getAgent(this.posX + i - 1, this.posY + j - 1);
+					Point p = new Point(this.posX + i - 1, this.posY + j - 1);
+					if(neighbour == null)
+						points.add(p);
+				} catch(ArrayIndexOutOfBoundsException e) {
+					
+				}
 			}
 		}
 		
-		this.move();
+		if(!points.isEmpty()) {
+			Point p = new Point(this.posX + this.pasX, this.posY + this.pasY);
+			if(points.contains(p))
+				this.move();
+		}
 	}
 	
 	private void setPas(int x, int y) {

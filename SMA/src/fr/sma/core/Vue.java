@@ -20,6 +20,7 @@ public class Vue implements Observer {
 	public Vue() {
 		panel = new EnvironmentPanel(canvasSizeX, canvasSizeY);
 		panel.setPreferredSize(new Dimension(canvasSizeX, canvasSizeY));
+		panel.setFocusable(true);
 		
 		this.window = new JFrame("SMA");
 		window.add(panel);

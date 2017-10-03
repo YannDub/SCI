@@ -1,6 +1,5 @@
 package fr.sma.pacman;
 
-import java.awt.Canvas;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -11,12 +10,12 @@ import fr.sma.core.SMA;
 import fr.sma.core.Vue;
 import fr.sma.core.utils.Properties;
 
-public class Main extends Canvas {
+public class Main {
 	
 	private static int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
 	private static int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
 	
-	public Main() {
+	public static void main(String[] argv) {
 		Random rand = new Random();
 		Environment e = new Environment(gridSizeX, gridSizeY);
 		List<Agent> agents = new ArrayList<Agent>();
@@ -30,11 +29,8 @@ public class Main extends Canvas {
 		e.addAgent(a, x, y);
 		
 		Vue vue = new Vue();
+		vue.getPanel().addKeyListener(a);
 		sma.addObserver(vue);
 		sma.run();
-	}
-	
-	public static void main(String[] argv) {
-		Main main = new Main();
 	}
 }
