@@ -22,9 +22,7 @@ public class Particle extends Agent {
 			if(p != null) this.bounceParticle(p);
 			else this.step();
 		} catch(ArrayIndexOutOfBoundsException e) {
-			if (Boolean.parseBoolean(Properties.getProperty("torus")))
-				this.borderTorus();
-			else this.bounceBorder();
+			this.bounceBorder();
 		}
 	}
 	
@@ -61,15 +59,6 @@ public class Particle extends Agent {
 			this.pasY = -this.pasY;
 		}
 		this.turnRed();
-	}
-	
-	private void borderTorus() {
-		environment.removeAgent(this.posX, this.posY);
-		int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
-		int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
-		this.posX = Math.floorMod((this.posX +  this.pasX),  gridSizeX);
-		this.posY = Math.floorMod((this.posY +  this.pasY), gridSizeY);
-		environment.addAgent(this, this.posX, this.posY);
 	}
 	
 	private void turnRed() {
