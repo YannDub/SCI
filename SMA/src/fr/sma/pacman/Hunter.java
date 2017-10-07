@@ -7,6 +7,7 @@ import java.util.List;
 
 import fr.sma.core.Agent;
 import fr.sma.core.Environment;
+import fr.sma.core.utils.Properties;
 
 public class Hunter extends Agent {
 
@@ -24,9 +25,15 @@ public class Hunter extends Agent {
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 3; j++) {
 				try {
-					int value = path[this.posX + i - 1][this.posY + j - 1];
-					if(value < minValue && value != -1 && path[this.posX + i - 1][this.posY + j - 1] != -1) {
-						p = new Point(this.posX + i - 1, this.posY + j - 1);
+					int x = this.posX + i - 1;
+					int y = this.posY + j - 1;
+					if(Boolean.parseBoolean(Properties.getProperty("torus"))) {
+						x = x % path.length;
+						y = y % path[0].length;
+					}
+					int value = path[x][y];
+					if(value < minValue && value != -1 && path[x][y] != -1) {
+						p = new Point(x, y);
 						minValue = value;
 					}
 				} catch(ArrayIndexOutOfBoundsException e) {
