@@ -48,7 +48,7 @@ public class Hunter extends Agent {
 		this.pasY = (int) (p.getY() - this.posY);
 		
 		if(environment.getAgent(posX + pasX, posY + pasY) instanceof Avatar) {
-			JOptionPane.showMessageDialog(null, "You're Die");
+			JOptionPane.showMessageDialog(null, "You're Dead");
 			System.exit(0);
 		} else
 			move();
