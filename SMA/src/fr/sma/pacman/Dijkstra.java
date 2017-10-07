@@ -21,15 +21,26 @@ public class Dijkstra {
 	public static void compute(Environment e, int startX, int startY) {
 		for(int i = 0; i < gridSizeX; i++) {
 			for(int j = 0; j < gridSizeY; j++) {
-				int minX = Math.abs(startX - i);
-				int minY = Math.abs(startY - j);
+//				int minX = Math.abs(startX - i);
+//				int minY = Math.abs(startY - j);
+//				if(Boolean.parseBoolean(Properties.getProperty("torus"))) {
+//					minX = Math.min(minX, Math.abs(gridSizeX + startX - i));
+//					minY = Math.min(minY, Math.abs(gridSizeY + startY - j));
+//				}
+//				if(!(e.getAgent(i, j) instanceof Wall)) {					
+//					if(minX == minY) path[i][j] = Math.min(minX, minY);
+//					else path[i][j] = Math.max(minX, minY);
+//				}
+				int posX = Math.abs(startX - i);
+				int posY = Math.abs(startY - j);
 				if(Boolean.parseBoolean(Properties.getProperty("torus"))) {
-					minX = Math.min(minX, Math.abs(gridSizeX + startX - i));
-					minY = Math.min(minY, Math.abs(gridSizeY + startY - j));
+					posX = Math.min(posX, Math.abs(gridSizeX + startX - i)) % gridSizeX;
+					posY = Math.min(posY, Math.abs(gridSizeY + startY - j)) % gridSizeY;
 				}
-				
-				if(minX == minY) path[i][j] = minX;
-				else path[i][j] = Math.max(minX, minY);
+				int dist = posX * posX + posY * posY;
+				if(!(e.getAgent(i, j) instanceof Wall)) {
+					path[i][j] = dist;
+				}
 			}
 		}
 	}

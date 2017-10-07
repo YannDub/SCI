@@ -25,7 +25,7 @@ public class Hunter extends Agent {
 			for(int j = 0; j < 3; j++) {
 				try {
 					int value = path[this.posX + i - 1][this.posY + j - 1];
-					if(value < minValue && value != -1) {
+					if(value < minValue && value != -1 && path[this.posX + i - 1][this.posY + j - 1] != -1) {
 						p = new Point(this.posX + i - 1, this.posY + j - 1);
 						minValue = value;
 					}
