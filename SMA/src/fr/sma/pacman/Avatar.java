@@ -17,7 +17,15 @@ public class Avatar extends Agent implements KeyListener {
 	public Avatar(Environment environment, int posX, int posY, int pasX, int pasY) {
 		super(environment, posX, posY, pasX, pasY);
 		this.color = Color.green;
-		Dijkstra.compute(environment, posX, posY, 0);
+		Dijkstra.init();
+		Dijkstra.path[posX][posY] = 0;
+		Dijkstra.compute(environment, posX, posY);
+		for(int j = 0; j < Dijkstra.path[0].length; j++) {
+			for(int i = 0; i < Dijkstra.path.length; i++) {
+				System.out.print(Dijkstra.path[i][j] + " ");
+			}
+			System.out.println();
+		}
 	}
 
 	@Override
@@ -81,7 +89,8 @@ public class Avatar extends Agent implements KeyListener {
 		this.posX += pasX;
 		this.posY += pasY;
 		this.environment.addAgent(this, this.posX, this.posY);
-		Dijkstra.compute(environment, this.posX, this.posY, 0);
+		Dijkstra.init();
+		Dijkstra.compute(environment, this.posX, this.posY);
 	}
 
 }
