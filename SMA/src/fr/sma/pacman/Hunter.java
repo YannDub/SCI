@@ -5,6 +5,8 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import fr.sma.core.Agent;
 import fr.sma.core.Environment;
 import fr.sma.core.utils.Properties;
@@ -32,7 +34,7 @@ public class Hunter extends Agent {
 						y = y % path[0].length;
 					}
 					int value = path[x][y];
-					if(value < minValue && value != -1 && path[x][y] != -1) {
+					if(value < minValue && value != -1 && path[x][y] != -1 && (environment.getAgent(x, y) == null || environment.getAgent(x, y) instanceof Avatar)) {
 						p = new Point(x, y);
 						minValue = value;
 					}
@@ -44,7 +46,12 @@ public class Hunter extends Agent {
 		
 		this.pasX = (int) (p.getX() - this.posX);
 		this.pasY = (int) (p.getY() - this.posY);
-		move();
+		
+		if(environment.getAgent(posX + pasX, posY + pasY) instanceof Avatar) {
+			JOptionPane.showMessageDialog(null, "You're Die");
+			System.exit(0);
+		} else
+			move();
 	}
 	
 	private void move() {
