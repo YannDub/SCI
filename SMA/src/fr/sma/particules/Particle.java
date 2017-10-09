@@ -42,9 +42,7 @@ public class Particle extends Agent {
 		agent.pasY = currentPasY;
 		this.turnRed();
 		agent.turnRed();
-		SMA.nbCollisions++;
-		if(Boolean.parseBoolean(Properties.getProperty("trace")))
-			System.out.println("Agent;"+this.posX+","+this.posY);
+		ParticlePrinter.nbCollisions++;
 	}
 	
 	private void bounceBorder() {

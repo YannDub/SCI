@@ -19,7 +19,6 @@ public class SMA extends Observable {
 
 	protected String scheduling = Properties.getProperty("scheduling");
 	protected int tick = 0;
-	public static int nbCollisions = 0;
 	private SMAPrinter printer;
 
 	protected Environment e;
