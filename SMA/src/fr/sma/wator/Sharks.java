@@ -18,7 +18,8 @@ public class Sharks extends Agent {
 	
 	public Sharks(Environment environment, int posX, int posY) {
 		super(environment, posX, posY, 0, 0);
-		this.breedTime = Integer.parseInt(Properties.getProperty("SharkBreedTime"));
+		Random rand = new Random();
+		this.breedTime = 1 + rand.nextInt(Integer.parseInt(Properties.getProperty("SharkBreedTime")));
 		this.starveTime = Integer.parseInt(Properties.getProperty("SharkStarveTime"));
 		this.trace = Boolean.parseBoolean(Properties.getProperty("trace"));
 		this.color = Color.red;

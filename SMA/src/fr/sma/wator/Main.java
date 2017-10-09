@@ -46,6 +46,7 @@ public class Main {
 			e.addAgent(p, posX, posY);
 		}
 		
+		sma.addSMAPrinter(new WatorPrinter());
 		Vue vue = new Vue();
 		sma.addObserver(vue);
 		sma.run();
