@@ -1,174 +1,499 @@
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;8,35
-Agent;10,3
-Agent;36,87
-Tick;9
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;28,17
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;9
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;28,33
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;28,32
-Agent;36,87
-Tick;9
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;28,32
-Agent;36,87
-Tick;8
-Agent;0,87
-Agent;86,88
-Agent;9,12
-Agent;77,6
-Agent;19,56
-Agent;10,3
-Agent;28,32
-Agent;36,87
-Tick;8
+Tick; 0
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 8
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 9
+Tick; 7
+Tick; 7
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 9
+Tick; 8
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 9
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 10
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 9
+Tick; 6
+Tick; 6
+Tick; 9
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 9
+Tick; 7
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 8
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 8
+Tick; 7
+Tick; 9
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 9
+Tick; 10
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 9
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 9
+Tick; 7
+Tick; 8
+Tick; 8
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 9
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 8
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 8
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 9
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 10
+Tick; 8
+Tick; 7
+Tick; 10
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 9
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 8
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 10
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 8
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 8
+Tick; 6
+Tick; 8
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 8
+Tick; 6
+Tick; 6
+Tick; 9
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 8
+Tick; 6
+Tick; 8
+Tick; 8
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 9
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 8
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 7
+Tick; 6
+Tick; 6
+Tick; 6
+Tick; 6

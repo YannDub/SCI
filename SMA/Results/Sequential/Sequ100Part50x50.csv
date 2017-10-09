@@ -1,121 +1,499 @@
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;34,28
-Agent;47,40
-Tick;6
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;41,36
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;6
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;45,39
-Agent;5,1
-Agent;47,40
-Tick;6
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;31,39
-Agent;15,40
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Agent;10,30
-Tick;8
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;46,30
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;6
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
-Agent;0,20
-Agent;40,12
-Agent;5,32
-Agent;5,1
-Agent;47,40
-Tick;5
+Tick; 0
+Tick; 13
+Tick; 11
+Tick; 12
+Tick; 15
+Tick; 10
+Tick; 13
+Tick; 15
+Tick; 13
+Tick; 11
+Tick; 13
+Tick; 14
+Tick; 14
+Tick; 12
+Tick; 12
+Tick; 12
+Tick; 12
+Tick; 14
+Tick; 11
+Tick; 19
+Tick; 15
+Tick; 11
+Tick; 13
+Tick; 12
+Tick; 15
+Tick; 10
+Tick; 10
+Tick; 11
+Tick; 12
+Tick; 16
+Tick; 12
+Tick; 11
+Tick; 11
+Tick; 13
+Tick; 14
+Tick; 13
+Tick; 11
+Tick; 16
+Tick; 11
+Tick; 13
+Tick; 13
+Tick; 11
+Tick; 14
+Tick; 12
+Tick; 14
+Tick; 12
+Tick; 14
+Tick; 12
+Tick; 15
+Tick; 13
+Tick; 12
+Tick; 13
+Tick; 12
+Tick; 13
+Tick; 13
+Tick; 11
+Tick; 14
+Tick; 16
+Tick; 13
+Tick; 15
+Tick; 12
+Tick; 11
+Tick; 13
+Tick; 14
+Tick; 12
+Tick; 13
+Tick; 14
+Tick; 13
+Tick; 14
+Tick; 11
+Tick; 15
+Tick; 14
+Tick; 11
+Tick; 12
+Tick; 12
+Tick; 11
+Tick; 13
+Tick; 11
+Tick; 10
+Tick; 15
+Tick; 13
+Tick; 12
+Tick; 12
+Tick; 14
+Tick; 18
+Tick; 11
+Tick; 12
+Tick; 12
+Tick; 14
+Tick; 12
+Tick; 16
+Tick; 13
+Tick; 16
+Tick; 11
+Tick; 12
+Tick; 12
+Tick; 16
+Tick; 12
+Tick; 10
+Tick; 17
+Tick; 13
+Tick; 13
+Tick; 15
+Tick; 13
+Tick; 13
+Tick; 12
+Tick; 12
+Tick; 17
+Tick; 14
+Tick; 16
+Tick; 10
+Tick; 14
+Tick; 12
+Tick; 12
+Tick; 12
+Tick; 12
+Tick; 11
+Tick; 11
+Tick; 11
+Tick; 16
+Tick; 14
+Tick; 15
+Tick; 11
+Tick; 11
+Tick; 13
+Tick; 11
+Tick; 13
+Tick; 14
+Tick; 12
+Tick; 15
+Tick; 11
+Tick; 11
+Tick; 11
+Tick; 11
+Tick; 12
+Tick; 13
+Tick; 12
+Tick; 11
+Tick; 13
+Tick; 13
+Tick; 14
+Tick; 12
+Tick; 13
+Tick; 13
+Tick; 12
+Tick; 19
+Tick; 14
+Tick; 16
+Tick; 14
+Tick; 12
+Tick; 13
+Tick; 16
+Tick; 11
+Tick; 13
+Tick; 11
+Tick; 15
+Tick; 12
+Tick; 11
+Tick; 15
+Tick; 15
+Tick; 11
+Tick; 13
+Tick; 12
+Tick; 14
+Tick; 15
+Tick; 11
+Tick; 13
+Tick; 13
+Tick; 13
+Tick; 11
+Tick; 12
+Tick; 15
+Tick; 12
+Tick; 11
+Tick; 13
+Tick; 15
+Tick; 11
+Tick; 12
+Tick; 13
+Tick; 12
+Tick; 11
+Tick; 12
+Tick; 14
+Tick; 13
+Tick; 12
+Tick; 13
+Tick; 11
+Tick; 11
+Tick; 14
+Tick; 12
+Tick; 12
+Tick; 11
+Tick; 14
+Tick; 14
+Tick; 13
+Tick; 14
+Tick; 14
+Tick; 16
+Tick; 13
+Tick; 14
+Tick; 11
+Tick; 10
+Tick; 13
+Tick; 12
+Tick; 13
+Tick; 14
+Tick; 13
+Tick; 13
+Tick; 11
+Tick; 15
+Tick; 12
+Tick; 11
+Tick; 11
+Tick; 12
+Tick; 13
+Tick; 15
+Tick; 11
+Tick; 12
+Tick; 12
+Tick; 10
+Tick; 10
+Tick; 11
+Tick; 13
+Tick; 12
+Tick; 11
+Tick; 10
+Tick; 11
+Tick; 15
+Tick; 13
+Tick; 13
+Tick; 11
+Tick; 12
+Tick; 12
+Tick; 15
+Tick; 13
+Tick; 14
+Tick; 14
+Tick; 13
+Tick; 11
+Tick; 12
+Tick; 14
+Tick; 11
+Tick; 16
+Tick; 14
+Tick; 12
+Tick; 16
+Tick; 12
+Tick; 12
+Tick; 17
+Tick; 14
+Tick; 14
+Tick; 12
+Tick; 12
+Tick; 12
+Tick; 11
+Tick; 13
+Tick; 15
+Tick; 13
+Tick; 13
+Tick; 13
+Tick; 13
+Tick; 13
+Tick; 10
+Tick; 14
+Tick; 11
+Tick; 12
+Tick; 11
+Tick; 15
+Tick; 13
+Tick; 12
+Tick; 11
+Tick; 14
+Tick; 13
+Tick; 11
+Tick; 12
+Tick; 11
+Tick; 16
+Tick; 15
+Tick; 14
+Tick; 12
+Tick; 12
+Tick; 13
+Tick; 12
+Tick; 14
+Tick; 11
+Tick; 12
+Tick; 11
+Tick; 10
+Tick; 13
+Tick; 12
+Tick; 15
+Tick; 12
+Tick; 12
+Tick; 15
+Tick; 10
+Tick; 11
+Tick; 13
+Tick; 14
+Tick; 12
+Tick; 13
+Tick; 12
+Tick; 11
+Tick; 14
+Tick; 11
+Tick; 11
+Tick; 14
+Tick; 13
+Tick; 15
+Tick; 13
+Tick; 12
+Tick; 13
+Tick; 14
+Tick; 13
+Tick; 12
+Tick; 13
+Tick; 12
+Tick; 13
+Tick; 13
+Tick; 12
+Tick; 15
+Tick; 12
+Tick; 10
+Tick; 13
+Tick; 12
+Tick; 13
+Tick; 13
+Tick; 13
+Tick; 15
+Tick; 11
+Tick; 13
+Tick; 15
+Tick; 13
+Tick; 16
+Tick; 12
+Tick; 13
+Tick; 13
+Tick; 12
+Tick; 13
+Tick; 15
+Tick; 11
+Tick; 12
+Tick; 13
+Tick; 12
+Tick; 13
+Tick; 11
+Tick; 13
+Tick; 12
+Tick; 12
+Tick; 14
+Tick; 13
+Tick; 14
+Tick; 15
+Tick; 11
+Tick; 15
+Tick; 16
+Tick; 14
+Tick; 10
+Tick; 13
+Tick; 14
+Tick; 12
+Tick; 13
+Tick; 15
+Tick; 13
+Tick; 17
+Tick; 12
+Tick; 15
+Tick; 13
+Tick; 13
+Tick; 11
+Tick; 14
+Tick; 15
+Tick; 12
+Tick; 12
+Tick; 13
+Tick; 12
+Tick; 12
+Tick; 15
+Tick; 16
+Tick; 14
+Tick; 12
+Tick; 11
+Tick; 10
+Tick; 11
+Tick; 10
+Tick; 13
+Tick; 14
+Tick; 13
+Tick; 13
+Tick; 12
+Tick; 13
+Tick; 11
+Tick; 14
+Tick; 14
+Tick; 17
+Tick; 16
+Tick; 11
+Tick; 15
+Tick; 11
+Tick; 13
+Tick; 12
+Tick; 13
+Tick; 11
+Tick; 12
+Tick; 14
+Tick; 13
+Tick; 14
+Tick; 15
+Tick; 12
+Tick; 14
+Tick; 12
+Tick; 12
+Tick; 13
+Tick; 12
+Tick; 14
+Tick; 14
+Tick; 11
+Tick; 12
+Tick; 12
+Tick; 11
+Tick; 11
+Tick; 11
+Tick; 14
+Tick; 12
+Tick; 12
+Tick; 12
+Tick; 12
+Tick; 13
+Tick; 13
+Tick; 16
+Tick; 16
+Tick; 16
+Tick; 12
+Tick; 11
+Tick; 12
+Tick; 14
+Tick; 15
+Tick; 13
+Tick; 16
+Tick; 13
+Tick; 10
+Tick; 15
+Tick; 14
+Tick; 12
+Tick; 11
+Tick; 10
+Tick; 12
+Tick; 10
+Tick; 16
+Tick; 12
+Tick; 13
+Tick; 14
+Tick; 12
+Tick; 12
+Tick; 12
+Tick; 15
+Tick; 14
+Tick; 13
+Tick; 13
+Tick; 13
+Tick; 11
+Tick; 13
+Tick; 13
+Tick; 13
+Tick; 11
+Tick; 14
+Tick; 13
+Tick; 13
+Tick; 14
+Tick; 14
+Tick; 13
+Tick; 10
+Tick; 16
+Tick; 13
+Tick; 12
+Tick; 16
+Tick; 11
+Tick; 11
+Tick; 14
+Tick; 13
+Tick; 16
+Tick; 12
+Tick; 12
+Tick; 10
+Tick; 16
+Tick; 15
+Tick; 12
+Tick; 12
+Tick; 13
+Tick; 11
+Tick; 13
+Tick; 13
+Tick; 12
+Tick; 15
+Tick; 12
+Tick; 13
+Tick; 19
+Tick; 12
+Tick; 12
+Tick; 11
