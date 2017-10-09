@@ -56,8 +56,9 @@ public class SMA extends Observable {
 				Random rand = new Random();
 				removedAgent = new ArrayList<Agent>();
 				if (ticks == 0 || ticks != 1) {
-					if(!Boolean.parseBoolean(Properties.getProperty("trace")) && printer != null)
+					if(Boolean.parseBoolean(Properties.getProperty("trace")) && printer != null) {
 						printAgents();
+					}
 					if(scheduling == "equitable")
 						Collections.shuffle(agents);
 					for (Agent a : agents) {
