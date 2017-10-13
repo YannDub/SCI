@@ -95,4 +95,14 @@ public class Dijkstra {
 			}
 		}
 	}
+	
+	public static void invert() {
+		for(int i = 0; i < gridSizeX; i++) {
+			for(int j = 0; j < gridSizeY; j++) {
+				if(path[i][j] != Integer.MAX_VALUE) {
+					path[i][j] = Integer.MAX_VALUE - path[i][j];
+				}
+			}
+		}
+	}
 }

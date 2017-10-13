@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import fr.sma.core.Agent;
 import fr.sma.core.Environment;
@@ -15,6 +16,8 @@ public class Avatar extends Agent implements KeyListener {
 
 	private int lastKeyPressed;
 	private int defendTime;
+	private int gridSizeX = Integer.parseInt(Properties.getProperty("gridSizeX"));
+	private int gridSizeY = Integer.parseInt(Properties.getProperty("gridSizeY"));
 	
 	public Avatar(Environment environment, int posX, int posY, int pasX, int pasY) {
 		super(environment, posX, posY, pasX, pasY);
@@ -66,7 +69,7 @@ public class Avatar extends Agent implements KeyListener {
 				try {					
 					Agent neighbour = this.environment.getAgent(this.posX + i - 1, this.posY + j - 1);
 					Point p = new Point(this.posX + i - 1, this.posY + j - 1);
-					if(neighbour == null)
+					if(neighbour == null || neighbour instanceof Defender)
 						points.add(p);
 				} catch(ArrayIndexOutOfBoundsException e) {
 					
@@ -78,6 +81,22 @@ public class Avatar extends Agent implements KeyListener {
 			Point p = new Point(this.posX + this.pasX, this.posY + this.pasY);
 			if(points.contains(p))
 				this.move();
+		}
+		
+		if(isDefended()) {
+			this.defendTime--;
+			Dijkstra.invert();
+		}
+		
+		Random rand = new Random();
+		if(rand.nextFloat() <= 0.01) {
+			int x = rand.nextInt(gridSizeX);
+			int y = rand.nextInt(gridSizeY);
+			while(environment.getAgent(x, y) != null) {
+				x = rand.nextInt(gridSizeX);
+				y = rand.nextInt(gridSizeY);
+			}
+			environment.addAgent(new Defender(environment, x, y), x, y);
 		}
 	}
 	
@@ -93,6 +112,10 @@ public class Avatar extends Agent implements KeyListener {
 		this.environment.addAgent(this, this.posX, this.posY);
 		Dijkstra.init();
 		Dijkstra.compute(environment, this.posX, this.posY);
+	}
+	
+	public boolean isDefended() {
+		return this.defendTime > 0;
 	}
 	
 	public void setDefend() {
