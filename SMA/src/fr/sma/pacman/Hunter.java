@@ -2,8 +2,6 @@ package fr.sma.pacman;
 
 import java.awt.Color;
 import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JOptionPane;
 
