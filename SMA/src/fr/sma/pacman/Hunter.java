@@ -27,16 +27,18 @@ public class Hunter extends Agent {
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 3; j++) {
 				try {
-					int x = this.posX + i - 1;
-					int y = this.posY + j - 1;
-					if(Boolean.parseBoolean(Properties.getProperty("torus"))) {
-						x = x % path.length;
-						y = y % path[0].length;
-					}
-					int value = path[x][y];
-					if(value < minValue && value != -1 && path[x][y] != -1 && (environment.getAgent(x, y) == null || environment.getAgent(x, y) instanceof Avatar)) {
-						p = new Point(x, y);
-						minValue = value;
+					if(i == 1 && j == 0 || i == 1 && j == 2 || i == 0 && j == 1 || i == 2 && j == 1) {						
+						int x = this.posX + i - 1;
+						int y = this.posY + j - 1;
+						if(Boolean.parseBoolean(Properties.getProperty("torus"))) {
+							x = x % path.length;
+							y = y % path[0].length;
+						}
+						int value = path[x][y];
+						if(value < minValue && value != -1 && path[x][y] != -1 && (environment.getAgent(x, y) == null || environment.getAgent(x, y) instanceof Avatar)) {
+							p = new Point(x, y);
+							minValue = value;
+						}
 					}
 				} catch(ArrayIndexOutOfBoundsException e) {
 					
