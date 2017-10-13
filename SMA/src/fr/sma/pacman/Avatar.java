@@ -9,10 +9,12 @@ import java.util.List;
 
 import fr.sma.core.Agent;
 import fr.sma.core.Environment;
+import fr.sma.core.utils.Properties;
 
 public class Avatar extends Agent implements KeyListener {
 
 	private int lastKeyPressed;
+	private int defendTime;
 	
 	public Avatar(Environment environment, int posX, int posY, int pasX, int pasY) {
 		super(environment, posX, posY, pasX, pasY);
@@ -91,6 +93,10 @@ public class Avatar extends Agent implements KeyListener {
 		this.environment.addAgent(this, this.posX, this.posY);
 		Dijkstra.init();
 		Dijkstra.compute(environment, this.posX, this.posY);
+	}
+	
+	public void setDefend() {
+		this.defendTime = Integer.parseInt(Properties.getProperty("DefendLive"));
 	}
 
 }
