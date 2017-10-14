@@ -79,8 +79,13 @@ public class Avatar extends Agent implements KeyListener {
 		
 		if(!points.isEmpty()) {
 			Point p = new Point(this.posX + this.pasX, this.posY + this.pasY);
-			if(points.contains(p))
+			if(points.contains(p)) {
+				try {					
+					if(environment.getAgent(p.x, p.y) instanceof Defender)
+						this.setDefend();
+				} catch (ArrayIndexOutOfBoundsException ex) {}
 				this.move();
+			}
 		}
 		
 		if(isDefended()) {

@@ -14,11 +14,7 @@ public class Defender extends Agent {
 
 	@Override
 	public void decide() {
-		if(environment.getAgent(this.posX, this.posY) instanceof Avatar) {
-			Avatar a = (Avatar) environment.getAgent(this.posX, this.posY);
-			a.setDefend();
-			environment.removeAgent(this.posX, this.posY);
-		}
+		
 	}
 
 }
