@@ -20,7 +20,7 @@ public abstract class Agent {
 		
 	}
 	
-	public abstract void decide();
+	public abstract void decide(int tick);
 	
 	public Color getColor() {
 		return this.color;

@@ -31,7 +31,7 @@ public class Sharks extends Agent {
 	}
 
 	@Override
-	public void decide() {
+	public void decide(int tick) {
 		Random rand = new Random();		
 		List<Point> fishs = new ArrayList<Point>();
 		List<Point> water = new ArrayList<Point>();

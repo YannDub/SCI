@@ -64,11 +64,11 @@ public class SMA extends Observable {
 					for (Agent a : agents) {
 						if(scheduling == "aleat") {
 							Agent ag = agents.get(rand.nextInt(agents.size()));
-							if(!removedAgent.contains(ag)) ag.decide();
+							if(!removedAgent.contains(ag)) ag.decide(tick);
 						} else 
-							if(!removedAgent.contains(a)) a.decide();
+							if(!removedAgent.contains(a)) a.decide(tick);
 					}
-					tick = ticks;
+					tick++;
 					if (ticks > 1)
 						ticks--;
 					setChanged();

@@ -16,7 +16,7 @@ public class Particle extends Agent {
 		this.color = Color.gray;
 	}
 	
-	public void decide() {		
+	public void decide(int tick) {		
 		try {
 			Particle p = (Particle) this.environment.getAgent(this.posX + this.pasX, this.posY + this.pasY);
 			if(p != null) this.bounceParticle(p);

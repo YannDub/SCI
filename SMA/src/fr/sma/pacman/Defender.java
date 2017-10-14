@@ -13,7 +13,7 @@ public class Defender extends Agent {
 	}
 
 	@Override
-	public void decide() {
+	public void decide(int tick) {
 		
 	}
 

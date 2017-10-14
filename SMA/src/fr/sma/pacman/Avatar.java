@@ -25,12 +25,6 @@ public class Avatar extends Agent implements KeyListener {
 		Dijkstra.init();
 		Dijkstra.path[posX][posY] = 0;
 		Dijkstra.compute(environment, posX, posY);
-		for(int j = 0; j < Dijkstra.path[0].length; j++) {
-			for(int i = 0; i < Dijkstra.path.length; i++) {
-				System.out.print(Dijkstra.path[i][j] + " ");
-			}
-			System.out.println();
-		}
 	}
 
 	@Override
@@ -45,7 +39,7 @@ public class Avatar extends Agent implements KeyListener {
 	public void keyReleased(KeyEvent e) {}
 
 	@Override
-	public void decide() {
+	public void decide(int tick) {
 		switch(this.lastKeyPressed) {
 		case KeyEvent.VK_RIGHT:
 			this.setPas(1, 0);
